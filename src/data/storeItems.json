@@ -1,0 +1,77 @@
+{
+  "items": [
+    {
+      "id": "zepto_150_off",
+      "brandName": "Zepto",
+      "logo_placeholder": "Z",
+      "offer": "₹150 OFF",
+      "description": "On your next grocery order above ₹599. Get snacks and essentials delivered in minutes.",
+      "price": 1000,
+      "couponCode": "CQZEP150"
+    },
+    {
+      "id": "amazon_5_cashback",
+      "brandName": "Amazon.in",
+      "logo_placeholder": "A",
+      "offer": "5% Cashback",
+      "description": "Up to ₹100 on your next purchase in the Books category. Fuel your curiosity!",
+      "price": 1200,
+      "couponCode": "AMZNCQREADS"
+    },
+    {
+      "id": "swiggy_50_off",
+      "brandName": "Swiggy",
+      "logo_placeholder": "S",
+      "offer": "50% OFF",
+      "description": "Up to ₹100 on your next food order. A treat for a true scholar!",
+      "price": 1500,
+      "couponCode": "SWIGGYQUEST"
+    },
+    {
+      "id": "bookmyshow_bogo",
+      "brandName": "BookMyShow",
+      "logo_placeholder": "B",
+      "offer": "Buy 1 Get 1 Free",
+      "description": "On movie tickets at participating cinemas. Valid on weekdays only.",
+      "price": 2500,
+      "couponCode": "BMSMOVIEBOGO"
+    },
+    {
+      "id": "hotstar_1_month",
+      "brandName": "Disney+ Hotstar",
+      "logo_placeholder": "H",
+      "offer": "1 Month Free",
+      "description": "Access to the premium plan for one month. Perfect for history documentaries!",
+      "price": 2000,
+      "couponCode": "HOTSTARCQFREE"
+    },
+    {
+      "id": "crossword_200_off",
+      "brandName": "Crossword",
+      "logo_placeholder": "C",
+      "offer": "₹200 OFF",
+      "description": "On a purchase of ₹1000 or more at any Crossword bookstore or online.",
+      "price": 1800,
+      "couponCode": "CROSSWORD200"
+    },
+    {
+      "id": "culturoquest_merch_25",
+      "brandName": "CulturoQuest Merch",
+      "logo_placeholder": "CQ",
+      "offer": "25% OFF",
+      "description": "On your first order from the official CulturoQuest merchandise store.",
+      "price": 800,
+      "couponCode": "QUESTMASTER25"
+    },
+    {
+      "id": "udemy_course_30",
+      "brandName": "Udemy",
+      "logo_placeholder": "U",
+      "offer": "30% OFF",
+      "description": "On any single course. Expand your knowledge in any field you desire.",
+      "price": 2200,
+      "couponCode": "UDEMYLEARN30"
+    }
+  ]
+}
+

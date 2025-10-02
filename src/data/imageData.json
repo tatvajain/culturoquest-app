@@ -1,0 +1,44 @@
+{
+  "avatars": [
+    {
+      "id": "default",
+      "name": "Default",
+      "url": "https://placehold.co/100x100/a7f3d0/15803d?text=CQ"
+    },
+    {
+      "id": "lotus",
+      "name": "Lotus",
+      "url": "https://placehold.co/100x100/fbcfe8/9d174d?text=🌸"
+    },
+    {
+      "id": "peacock",
+      "name": "Peacock",
+      "url": "https://placehold.co/100x100/bae6fd/0c4a6e?text=🦚"
+    },
+    {
+      "id": "elephant",
+      "name": "Royal Elephant",
+      "url": "https://placehold.co/100x100/d1d5db/4b5563?text=🐘"
+    },
+    {
+      "id": "tiger",
+      "name": "Bengal Tiger",
+      "url": "https://placehold.co/100x100/fed7aa/9a3412?text=🐅"
+    }
+  ],
+  "sagaImages": {
+    "mauryan": "https://i.imgur.com/O6wW29j.jpeg",
+    "culture": "https://i.imgur.com/4z3Y5E7.jpeg"
+  },
+  "achievementIcons": {
+    "quest_novice": "https://placehold.co/100x100/fef08a/854d0e?text=✨",
+    "mauryan_scholar": "https://placehold.co/100x100/fed7aa/9a3412?text=📜",
+    "cultural_connoisseur": "https://placehold.co/100x100/dbeafe/1e3a8a?text=🎨",
+    "timeline_titan": "https://placehold.co/100x100/fecaca/991b1b?text=⏳",
+    "riddle_master": "https://placehold.co/100x100/e0e7ff/312e81?text=🤔",
+    "five_streak": "https://placehold.co/100x100/fecdd3/9f1239?text=🔥",
+    "qp_hoarder": "https://placehold.co/100x100/bae6fd/0c4a6e?text=💎",
+    "perfect_historian": "https://placehold.co/100x100/fcd34d/b45309?text=🏆"
+  }
+}
+

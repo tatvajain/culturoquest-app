@@ -1,0 +1,38 @@
+Logs
+Logs can contain sensitive information and grow very large.
+logs
+.log
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+Dependencies
+This is the most important line. It tells Git to ignore the massive node_modules folder.
+/node_modules
+
+Build artifacts
+These folders are created when you build your project for production.
+/dist
+/dist-ssr
+/build
+
+Environment variables
+This is crucial for security. It prevents you from accidentally uploading
+secret keys or passwords.
+.env
+.env.local
+*.local
+
+Editor directories and files
+These are specific to your code editor (like VS Code or WebStorm) and should not be shared.
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?

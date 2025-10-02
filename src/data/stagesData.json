@@ -1,0 +1,99 @@
+{
+  "stages": [
+    {
+      "id": "history_1",
+      "name": "The Mauryan Empire",
+      "era": "Ancient India",
+      "description": "Explore the rise of India's first great empire under rulers like Chandragupta and Ashoka.",
+      "relatedSaga": "Ancient India: The Mauryan Age (BCE)"
+    },
+    {
+      "id": "history_2",
+      "name": "The Gupta Empire",
+      "era": "Classical India",
+      "description": "Discover the 'Golden Age of India,' a period of great scientific and artistic achievement.",
+      "relatedSaga": "Ancient India: The Mauryan Age (BCE)",
+      "isLocked": true
+    },
+    {
+      "id": "history_3",
+      "name": "The Delhi Sultanate",
+      "era": "Medieval India",
+      "description": "Learn about the series of powerful Turko-Afghan dynasties that ruled from Delhi.",
+      "relatedSaga": "Ancient India: The Mauryan Age (BCE)",
+      "isLocked": true
+    },
+    {
+      "id": "history_4",
+      "name": "The Mughal Empire",
+      "era": "Early Modern India",
+      "description": "Witness the grandeur of the Mughals, from Babur's conquest to the splendor of the Taj Mahal.",
+      "relatedSaga": "Ancient India: The Mauryan Age (BCE)",
+      "isLocked": true
+    },
+    {
+      "id": "history_5",
+      "name": "The Maratha Empire",
+      "era": "Early Modern India",
+      "description": "Explore the rise of the Maratha warrior Shivaji and the empire that challenged the Mughals.",
+      "relatedSaga": "Ancient India: The Mauryan Age (BCE)",
+      "isLocked": true
+    },
+    {
+      "id": "history_6",
+      "name": "The British Raj",
+      "era": "Colonial India",
+      "description": "Understand the impact of British rule and the struggle for India's independence.",
+      "relatedSaga": "Ancient India: The Mauryan Age (BCE)",
+      "isLocked": true
+    },
+    {
+      "id": "culture_1",
+      "name": "Indian Culture 101",
+      "era": "Living Heritage",
+      "description": "From Start of basic India",
+      "relatedSaga": "Indian Culture 101"
+    },
+    {
+      "id": "culture_2",
+      "name": "Classical Dances",
+      "era": "Performing Arts",
+      "description": "Learn to identify the graceful and expressive forms of India's classical dances like Kathakali and Bihu.",
+      "relatedSaga": "Indian Culture 101",
+      "isLocked": true
+    },
+    {
+      "id": "culture_3",
+      "name": "Art & Handicrafts",
+      "era": "Artistic Traditions",
+      "description": "Explore the intricate beauty of Indian art forms, from Madhubani paintings to Bandhani textiles.",
+      "relatedSaga": "Indian Culture 101",
+      "isLocked": true
+    },
+    {
+      "id": "culture_4",
+      "name": "Architectural Marvels",
+      "era": "Monuments & Wonders",
+      "description": "Identify iconic monuments and understand the unique architectural styles that define India's landscape.",
+      "relatedSaga": "Indian Culture 101",
+      "isLocked": true
+    },
+    {
+      "id": "culture_5",
+      "name": "Indian Cuisine",
+      "era": "Culinary Journey",
+      "description": "From Vada Pav to Litti Chokha, embark on a delicious tour of India's regional foods.",
+      "relatedSaga": "Indian Culture 101",
+      "isLocked": true
+    },
+    {
+      "id": "culture_6",
+      "name": "Modern Marvels",
+      "era": "Contemporary India",
+      "description": "Test your knowledge on the facts and fictions that make up modern India's living traditions.",
+      "relatedSaga": "Indian Culture 101",
+      "isLocked": true
+    }
+  ]
+}
+
