@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// This is the URL of our backend server.
-const API_URL = 'https://culturoquest-app-1.onrender.com/api/users/login';
+// ✅ FIXED: Remove /login from the base URL
+const API_URL = 'https://culturoquest-app-1.onrender.com/api/users';
 
 const AuthContext = createContext(null);
 
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, [token]);
 
-  // --- NEW: Real Registration Function ---
+  // --- Registration Function ---
   const register = async (username, email, password) => {
     try {
       const res = await fetch(`${API_URL}/register`, {
@@ -41,14 +41,15 @@ export const AuthProvider = ({ children }) => {
         return { success: false, message: data.msg || 'Registration failed' };
       }
     } catch (err) {
+      console.error('Registration error:', err);
       return { success: false, message: 'Server error' };
     }
   };
 
-  // --- NEW: Real Login Function ---
+  // --- Login Function ---
   const login = async (email, password) => {
     try {
-      const res = await fetch(`${API_URL}/login`, {
+      const res = await fetch(`${API_URL}/login`, { // ✅ Now becomes /api/users/login
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,11 +67,12 @@ export const AuthProvider = ({ children }) => {
         return { success: false, message: data.msg || 'Invalid credentials' };
       }
     } catch (err) {
+      console.error('Login error:', err);
       return { success: false, message: 'Server error' };
     }
   };
 
-  // --- NEW: Real Logout Function ---
+  // --- Logout Function ---
   const logout = () => {
     localStorage.removeItem('token');
     setToken(null);
