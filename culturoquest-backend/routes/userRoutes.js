@@ -3,7 +3,11 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
-const User = require('../models/user');
+// Use PascalCase 'User' assuming your model file is User.js
+// If your file is named user.js, change this to ('../models/user')
+const User = require('../models/user'); 
+
+// --- USER AUTHENTICATION ROUTES ---
 
 // @route   POST api/users/register
 // @desc    Register a new user
@@ -17,10 +21,8 @@ router.post('/register', async (req, res) => {
     }
 
     user = new User({ username, email, password });
-
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
-
     await user.save();
 
     const payload = { user: { id: user.id } };
@@ -73,11 +75,14 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// --- GAME DATA ROUTES ---
+
 // @route   GET api/users/me
-// @desc    Get current user's profile
-// @access  Private
+// @desc    Get current user's full profile data
+// @access  Private (Requires Auth Token)
 router.get('/me', auth, async (req, res) => {
   try {
+    // Fetches all user data except the password hash
     const user = await User.findById(req.user.id).select('-password');
     res.json(user);
   } catch (err) {
@@ -87,8 +92,8 @@ router.get('/me', auth, async (req, res) => {
 });
 
 // @route   PUT api/users/update-progress
-// @desc    Update user's game progress
-// @access  Private
+// @desc    Update user's game progress (QP, Achievements, Stages)
+// @access  Private (Requires Auth Token)
 router.put('/update-progress', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
@@ -107,6 +112,7 @@ router.put('/update-progress', auth, async (req, res) => {
         }
     };
 
+    // Add unique entries to arrays
     addUnique(user.unlockedAchievements, unlockedAchievements);
     addUnique(user.correctlyAnsweredQIDs, correctlyAnsweredQIDs);
     addUnique(user.ownedItems, ownedItems);
@@ -130,7 +136,7 @@ router.put('/update-progress', auth, async (req, res) => {
 });
 
 // @route   GET api/users/leaderboard
-// @desc    Get top 5 users by Quest Points
+// @desc    Get top 5 users by Quest Points (for Home page)
 // @access  Public
 router.get('/leaderboard', async (req, res) => {
   try {
