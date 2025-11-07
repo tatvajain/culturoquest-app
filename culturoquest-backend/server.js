@@ -5,27 +5,32 @@ const cors = require('cors');
 
 const app = express();
 
-// 1. Middleware FIRST - Allow all your Vercel deployments
+// UPDATED CORS - Allow all Vercel deployments
 app.use(cors({
   origin: function(origin, callback) {
-    // Allow requests with no origin (like mobile apps or Postman)
+    // Allow requests with no origin (mobile apps, Postman, etc.)
     if (!origin) return callback(null, true);
     
-    // Allow any Vercel deployment under your account
-    const allowedPattern = /^https:\/\/.*\.tatvajains-projects\.vercel\.app$/;
-    
-    if (allowedPattern.test(origin) || origin === 'http://localhost:3000') {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+    // Allow all Vercel deployments
+    if (
+      origin.includes('tatvajains-projects.vercel.app') ||
+      origin.includes('vercel.app') ||
+      origin === 'http://localhost:3000' ||
+      origin === 'http://localhost:5173'
+    ) {
+      return callback(null, true);
     }
+    
+    callback(new Error('Not allowed by CORS'));
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
 
-// 2. Test Route SECOND
+// Test Route
 app.get('/test-db', async (req, res) => {
   res.json({ 
     message: "Server is running!",
@@ -33,19 +38,17 @@ app.get('/test-db', async (req, res) => {
   });
 });
 
-// 3. Database Connection THIRD - Better error handling
+// Database Connection
 mongoose
-  .connect(process.env.MONGO_URI) // or MONGODB_URI - check your .env file
+  .connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB Connected Successfully'))
   .catch(err => {
     console.error('❌ MongoDB Connection Error:', err.message);
-    console.error('Check your .env file has MONGO_URI set correctly');
   });
 
-// 4. Other Routes LAST
+// Routes
 app.get('/', (req, res) => res.json({ message: 'CulturoQuest API Running' }));
 
-// Check if routes file exists
 try {
   app.use('/api/users', require('./routes/userRoutes'));
 } catch (error) {
@@ -55,5 +58,4 @@ try {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
 });
