@@ -1,0 +1,45 @@
+{
+  "allAchievements": [
+    {
+      "id": "quest_novice",
+      "title": "Quest Novice",
+      "description": "Completed your very first quest."
+    },
+    {
+      "id": "mauryan_scholar",
+      "title": "Mauryan Scholar",
+      "description": "Mastered all stages of the 'Ancient India' saga."
+    },
+    {
+      "id": "cultural_connoisseur",
+      "title": "Cultural Connoisseur",
+      "description": "Mastered all stages of the 'Indian Culture 101' saga."
+    },
+    {
+      "id": "timeline_titan",
+      "title": "Timeline Titan",
+      "description": "Achieved a perfect score on a Timeline Jigsaw."
+    },
+    {
+      "id": "riddle_master",
+      "title": "Riddle Master",
+      "description": "Solved a Riddle of the Sages on the first clue."
+    },
+    {
+      "id": "five_streak",
+      "title": "On Fire!",
+      "description": "Achieved a 5-question streak in Cultural Match-Up."
+    },
+    {
+      "id": "qp_hoarder",
+      "title": "QP Hoarder",
+      "description": "Accumulate over 5,000 Quest Points."
+    },
+    {
+      "id": "perfect_historian",
+      "title": "Perfect Historian",
+      "description": "Unlock all other achievements."
+    }
+  ]
+}
+

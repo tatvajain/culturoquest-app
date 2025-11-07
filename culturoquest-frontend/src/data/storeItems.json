@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "id": "canteen_coffee",
+      "brandName": "Campus Cafe",
+      "logo_placeholder": "☕",
+      "offer": "Free Cold Coffee",
+      "description": "Valid at the main campus canteen. Perfect for those late-night study sessions!",
+      "price": 500,
+      "couponCode": "CAFE-JAVA-FREE"
+    },
+    {
+      "id": "stationery_kit",
+      "brandName": "Scholar's Stash",
+      "logo_placeholder": "✏️",
+      "offer": "Premium Notebook Set",
+      "description": "A set of 3 high-quality spiral notebooks and gel pens. Take notes in style.",
+      "price": 800,
+      "couponCode": "NOTE-TAKER-PRO"
+    },
+    {
+      "id": "udemy_course",
+      "brandName": "Udemy",
+      "logo_placeholder": "U",
+      "offer": "₹500 OFF Any Course",
+      "description": "Learn a new skill! Valid on coding, design, or history courses.",
+      "price": 1500,
+      "couponCode": "SKILLUP500"
+    },
+    {
+      "id": "library_fine",
+      "brandName": "Central Library",
+      "logo_placeholder": "📚",
+      "offer": "Waive Late Fee (Up to ₹100)",
+      "description": "Kept that reference book too long? We've got you covered once.",
+      "price": 1000,
+      "couponCode": "LIB-FORGIVE-100"
+    },
+    {
+      "id": "tech_accessories",
+      "brandName": "TechZone",
+      "logo_placeholder": "🎧",
+      "offer": "15% OFF Headphones",
+      "description": "Valid on leading student brands like boAt and Noise at the campus tech store.",
+      "price": 1200,
+      "couponCode": "AUDIO-BOOST-15"
+    },
+    {
+      "id": "photocopy_credits",
+      "brandName": "Xerox Point",
+      "logo_placeholder": "📄",
+      "offer": "50 Free Pages",
+      "description": "Get your notes or project reports printed for free at the main Xerox point.",
+      "price": 600,
+      "couponCode": "PRINT-FREE-50"
+    },
+    {
+      "id": "concert_ticket",
+      "brandName": "College Fest",
+      "logo_placeholder": "🎸",
+      "offer": "VIP Backstage Pass",
+      "description": "Exclusive access to the annual college fest celebrity night.",
+      "price": 5000,
+      "couponCode": "FEST-VIP-ACCESS"
+    },
+    {
+      "id": "internship_boost",
+      "brandName": "Career Cell",
+      "logo_placeholder": "🚀",
+      "offer": "Resume Highlight",
+      "description": "Your profile gets highlighted to recruiters during campus placements for one week.",
+      "price": 3000,
+      "couponCode": "HIRE-ME-NOW"
+    }
+  ]
+}

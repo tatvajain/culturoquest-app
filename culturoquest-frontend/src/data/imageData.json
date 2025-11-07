@@ -1,0 +1,53 @@
+{
+  "avatars": [
+    {
+      "id": "default",
+      "name": "Explorer",
+      "url": "https://cdn-icons-png.flaticon.com/512/3233/3233515.png"
+    },
+    {
+      "id": "tiger",
+      "name": "Bengal Tiger",
+      "url": "https://cdn-icons-png.flaticon.com/512/616/616430.png"
+    },
+    {
+      "id": "peacock",
+      "name": "Royal Peacock",
+      "url": "https://cdn-icons-png.flaticon.com/512/2547/2547542.png"
+    },
+    {
+      "id": "elephant",
+      "name": "Wise Elephant",
+      "url": "https://cdn-icons-png.flaticon.com/512/3703/3703029.png"
+    },
+    {
+      "id": "lotus",
+      "name": "Sacred Lotus",
+      "url": "https://cdn-icons-png.flaticon.com/512/9054/9054924.png"
+    },
+    {
+      "id": "king",
+      "name": "Maharaja",
+      "url": "https://cdn-icons-png.flaticon.com/512/2041/2041648.png"
+    },
+    {
+      "id": "queen",
+      "name": "Maharani",
+      "url": "https://cdn-icons-png.flaticon.com/512/2041/2041674.png"
+    }
+  ],
+  "sagaImages": {
+    "mauryan": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sanchi_Stupa_from_North_East.jpg/1280px-Sanchi_Stupa_from_North_East.jpg",
+    "culture": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kathakali_2.jpg/1280px-Kathakali_2.jpg"
+  },
+  "achievementIcons": {
+    "quest_novice": "https://cdn-icons-png.flaticon.com/512/5778/5778433.png",
+    "mauryan_scholar": "https://cdn-icons-png.flaticon.com/512/3319/3319329.png",
+    "cultural_connoisseur": "https://cdn-icons-png.flaticon.com/512/3081/3081726.png",
+    "timeline_titan": "https://cdn-icons-png.flaticon.com/512/2867/2867338.png",
+    "riddle_master": "https://cdn-icons-png.flaticon.com/512/3197/3197620.png",
+    "five_streak": "https://cdn-icons-png.flaticon.com/512/785/785116.png",
+    "qp_hoarder": "https://cdn-icons-png.flaticon.com/512/2534/2534204.png",
+    "perfect_historian": "https://cdn-icons-png.flaticon.com/512/5406/5406827.png"
+  }
+}

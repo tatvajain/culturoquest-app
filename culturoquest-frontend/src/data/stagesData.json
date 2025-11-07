@@ -1,0 +1,47 @@
+{
+  "stages": [
+    {
+      "id": "history_1",
+      "name": "The Mauryan Empire",
+      "era": "Ancient India",
+      "description": "Explore the rise of India's first great empire under rulers like Chandragupta and Ashoka.",
+      "relatedSaga": "ancient-india-bce"
+    },
+    {
+      "id": "history_2",
+      "name": "The Gupta Empire",
+      "era": "Classical India",
+      "description": "Discover the 'Golden Age of India,' a period of great scientific and artistic achievement.",
+      "relatedSaga": "ancient-india-bce"
+    },
+    {
+      "id": "history_3",
+      "name": "The Delhi Sultanate",
+      "era": "Medieval India",
+      "description": "Learn about the powerful Turko-Afghan dynasties that ruled from Delhi.",
+      "relatedSaga": "ancient-india-bce"
+    },
+    {
+      "id": "culture_1",
+      "name": "Cultural Foundations",
+      "era": "Arts & Festivals",
+      "description": "Master the vibrant festivals, traditional dances, and artistic heritage from across India.",
+      "relatedSaga": "indian-culture-101"
+    },
+    {
+      "id": "culture_2",
+      "name": "Architectural Marvels",
+      "era": "Monuments & Art",
+      "description": "Identify iconic monuments and learn about the unique art forms that define India's landscape.",
+      "relatedSaga": "indian-culture-101"
+    },
+    {
+      "id": "culture_3",
+      "name": "Living Traditions",
+      "era": "Facts & Fictions",
+      "description": "Test your knowledge on the fascinating facts and fictions that make up India's living traditions.",
+      "relatedSaga": "indian-culture-101"
+    }
+  ]
+}
+

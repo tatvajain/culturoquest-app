@@ -1,0 +1,223 @@
+{
+  "userUnlockedEntries": [
+    "chanakya",
+    "ashoka",
+    "taj_mahal",
+    "bihu_dance",
+    "snakes_and_ladders",
+    "zero",
+    "mauryan_dynasty",
+    "gautama_buddha"
+  ],
+  "allEntries": [
+    {
+      "id": "chanakya",
+      "title": "Chanakya",
+      "category": "Figures",
+      "emoji": "🧠",
+      "summary": "Ancient Indian teacher, philosopher, and royal advisor.",
+      "fullDescription": "Chanakya, also known as Kautilya or Vishnugupta, was a pivotal figure in the establishment of the Mauryan Empire. He served as the chief advisor to the first Mauryan emperor, Chandragupta, and is widely credited with being the author of the ancient Indian political treatise, the Arthashastra, a classic text on statecraft and economic policy."
+    },
+    {
+      "id": "ashoka",
+      "title": "Ashoka the Great",
+      "category": "Figures",
+      "emoji": "🦁",
+      "summary": "An Indian emperor of the Maurya Dynasty who ruled almost all of the Indian subcontinent.",
+      "fullDescription": "Ashoka was the grandson of Chandragupta Maurya. His reign is famous for his military conquest of Kalinga, a brutal war that led to his profound conversion to Buddhism. He then dedicated his rule to spreading the principles of peace, compassion, and Dharma, erecting pillars and edicts across his vast empire that still stand today."
+    },
+    {
+      "id": "alexander_the_great",
+      "title": "Alexander the Great",
+      "category": "Figures",
+      "emoji": "⚔️",
+      "summary": "King of the ancient Greek kingdom of Macedon and a legendary military commander.",
+      "fullDescription": "Alexander's invasion of the Indian subcontinent in 326 BCE marked a significant moment of contact between the Hellenistic world and India. His legendary encounter with King Porus at the Battle of the Hydaspes is a famous event, and his presence in the region directly preceded the rise of the Mauryan Empire."
+    },
+    {
+      "id": "chandragupta_maurya",
+      "title": "Chandragupta Maurya",
+      "category": "Figures",
+      "emoji": "👑",
+      "summary": "The founder of the Maurya Empire in ancient India.",
+      "fullDescription": "Chandragupta Maurya built one of the largest empires on the Indian subcontinent. He is credited with unifying India and successfully defeating Seleucus I Nicator, one of Alexander the Great's generals. In his later life, he famously abdicated his throne to become a Jain monk."
+    },
+    {
+      "id": "megasthenes",
+      "title": "Megasthenes",
+      "category": "Figures",
+      "emoji": "🇬🇷",
+      "summary": "A Greek ethnographer who served as an ambassador in the Mauryan court.",
+      "fullDescription": "Megasthenes was an ancient Greek historian and diplomat who was sent by Seleucus I Nicator as an ambassador to the court of Chandragupta Maurya in Pataliputra. His detailed work, 'Indica', though now lost in its original form, provides one of the most comprehensive contemporary accounts of Mauryan India."
+    },
+    {
+      "id": "bindusara",
+      "title": "Bindusara",
+      "category": "Figures",
+      "emoji": "🛡️",
+      "summary": "The second Mauryan emperor and father of Ashoka the Great.",
+      "fullDescription": "Son of the founder Chandragupta, Bindusara maintained the vast empire he inherited and expanded it southwards into the Deccan plateau. Known by the title 'Amitraghāta' (Slayer of Enemies), his reign was a crucial period of consolidation between the empire's founding and its zenith under Ashoka."
+    },
+    {
+      "id": "gautama_buddha",
+      "title": "Gautama Buddha",
+      "category": "Figures",
+      "emoji": "🧘‍♂️",
+      "summary": "A philosopher, mendicant, meditator, and spiritual teacher who founded Buddhism.",
+      "fullDescription": "Born Siddhartha Gautama in the 6th century BCE, the Buddha's teachings form the basis of Buddhism. He taught a Middle Way between sensual indulgence and severe asceticism. Though he lived before the Mauryan Empire, his philosophy profoundly influenced Emperor Ashoka and the course of Indian history."
+    },
+    {
+      "id": "kalinga_war",
+      "title": "Kalinga War",
+      "category": "Events",
+      "emoji": "💥",
+      "summary": "A brutal war fought between the Mauryan Empire under Ashoka and the state of Kalinga.",
+      "fullDescription": "Fought around 261 BCE, the Kalinga War was a turning point in the life of Emperor Ashoka. The immense destruction and loss of life during the conflict horrified Ashoka, leading to his adoption of Buddhism and his transformation from a conquering warrior to a ruler focused on peace and Dharma."
+    },
+    {
+      "id": "sanchi_stupa",
+      "title": "Sanchi Stupa",
+      "category": "Monuments",
+      "emoji": "☸️",
+      "summary": "A great Buddhist complex, famous for its large hemispherical dome, located in Madhya Pradesh.",
+      "fullDescription": "Originally commissioned by the emperor Ashoka in the 3rd century BCE, the Great Stupa at Sanchi is one of the oldest stone structures in India. It houses relics of the Buddha and is renowned for its ornate gateways (toranas) depicting scenes from the life of the Buddha."
+    },
+    {
+      "id": "pataliputra",
+      "title": "Pataliputra",
+      "category": "Places",
+      "emoji": "🏛️",
+      "summary": "The capital city of the Mauryan Empire, now modern-day Patna.",
+      "fullDescription": "Located at the confluence of the Ganges and Son rivers, Pataliputra was one of the largest and most magnificent cities of the ancient world. It served as the administrative and cultural heart of the Nanda, Mauryan, and Gupta empires for centuries."
+    },
+    {
+      "id": "taxila",
+      "title": "Taxila",
+      "category": "Places",
+      "emoji": "🎓",
+      "summary": "An ancient city and a renowned center of learning in the Mauryan Empire.",
+      "fullDescription": "Situated at a pivotal junction of trade routes, Taxila (Takshashila) was a major hub for education, culture, and commerce. It is considered one of the earliest universities in the world, where scholars like Chanakya taught various subjects long before the Mauryan period."
+    },
+    {
+      "id": "the_vedas",
+      "title": "The Vedas",
+      "category": "Concepts",
+      "emoji": "🕉️",
+      "summary": "A large body of religious texts originating in ancient India, forming the oldest scriptures of Hinduism.",
+      "fullDescription": "The Vedas are a collection of hymns, prayers, and philosophical treatises composed in Vedic Sanskrit. They are considered by Hindus to be of divine origin and form the foundation of Hindu religious and philosophical thought. The Rigveda is the oldest and most important of the four Vedas."
+    },
+    {
+      "id": "arthashastra",
+      "title": "Arthashastra",
+      "category": "Concepts",
+      "emoji": "📜",
+      "summary": "An ancient Indian treatise on statecraft, economic policy, and military strategy.",
+      "fullDescription": "Attributed to Chanakya (Kautilya), the Arthashastra is a comprehensive manual on how to run a state. It covers a vast range of topics, including taxation, law, diplomacy, espionage, and warfare, providing invaluable insight into the administration of the Mauryan Empire."
+    },
+    {
+      "id": "bihu_dance",
+      "title": "Bihu Dance",
+      "category": "Culture",
+      "emoji": "💃",
+      "summary": "A joyous folk dance from the state of Assam, performed during the Bihu festival.",
+      "fullDescription": "The Bihu dance is a vibrant and energetic folk dance characterized by brisk steps and rapid hand movements. It is an integral part of the Bihu festival, which celebrates the Assamese New Year. Both men and women participate, dressed in traditional attire like the dhoti, gamosa, and mekhela chador."
+    },
+    {
+      "id": "kathakali",
+      "title": "Kathakali",
+      "category": "Culture",
+      "emoji": "👺",
+      "summary": "A classical Indian dance-drama from Kerala, known for its elaborate makeup and costumes.",
+      "fullDescription": "Kathakali is a highly stylized classical Indian dance-drama noted for its attractive make-up of characters, elaborate costumes, detailed gestures and well-defined body movements. It traditionally presents stories from Hindu epics like the Ramayana and the Mahabharata."
+    },
+    {
+      "id": "taj_mahal",
+      "title": "Taj Mahal",
+      "category": "Monuments",
+      "emoji": "🕌",
+      "summary": "An ivory-white marble mausoleum on the south bank of the Yamuna river in Agra.",
+      "fullDescription": "Commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favorite wife, Mumtaz Mahal, the Taj Mahal is an icon of Mughal architecture. It is considered one of the New Seven Wonders of the World and a jewel of Muslim art in India."
+    },
+    {
+      "id": "qutub_minar",
+      "title": "Qutub Minar",
+      "category": "Monuments",
+      "emoji": "🗼",
+      "summary": "A towering minaret and victory tower that forms part of the Qutb complex in Delhi.",
+      "fullDescription": "The Qutub Minar is a 73-meter-tall tapering tower of five storeys, with a 14.3-meter base diameter, reducing to 2.7 meters at the top. Its construction was started in 1192 by Qutb-ud-din Aibak, founder of the Delhi Sultanate, and was completed by his successors."
+    },
+     {
+      "id": "hawa_mahal",
+      "title": "Hawa Mahal",
+      "category": "Monuments",
+      "emoji": "🪟",
+      "summary": "A palace in Jaipur, India, known for its facade with 953 small windows.",
+      "fullDescription": "Built in 1799 by Maharaja Sawai Pratap Singh, the Hawa Mahal ('Palace of Winds') is an extraordinary pink-painted, delicately honeycombed hive that rises a dizzying five stories. Its unique facade of 953 'jharokhas' (windows) allowed royal women to observe everyday life and festivals unseen from the outside."
+    },
+    {
+      "id": "konark_sun_temple",
+      "title": "Konark Sun Temple",
+      "category": "Monuments",
+      "emoji": "☀️",
+      "summary": "A 13th-century CE Sun temple at Konark in Odisha, India.",
+      "fullDescription": "Attributed to king Narasimhadeva I of the Eastern Ganga Dynasty, the temple is built in the shape of a gigantic chariot with elaborately carved stone wheels, pillars and walls. A major part of the structure is now in ruins, but it remains a classic example of Kalinga architecture."
+    },
+    {
+      "id": "snakes_and_ladders",
+      "title": "Snakes and Ladders",
+      "category": "Concepts",
+      "emoji": "🎲",
+      "summary": "A classic board game that originated in ancient India as 'Moksha Patam'.",
+      "fullDescription": "The game was created to teach moral lessons about karma. The ladders represented virtues that allow one to ascend in life, while the snakes represented vices that cause one to be reborn into lower forms of life. The game was later adapted and simplified by British colonials."
+    },
+    {
+      "id": "zero",
+      "title": "The Number Zero",
+      "category": "Concepts",
+      "emoji": "0️⃣",
+      "summary": "The mathematical concept of zero as a number was first defined and used in India.",
+      "fullDescription": "The Indian mathematician Brahmagupta, around 628 CE, was the first to formalize the rules for using zero in arithmetic operations. This revolutionary concept was crucial for the development of the decimal system and modern mathematics, eventually spreading to the rest of the world via Arab traders."
+    },
+    {
+      "id": "pongal",
+      "title": "Pongal Festival",
+      "category": "Culture",
+      "emoji": "🌾",
+      "summary": "A multi-day harvest festival celebrated in Tamil Nadu.",
+      "fullDescription": "Pongal is a four-day harvest festival dedicated to the Sun God. It is one of the most important festivals celebrated by Tamil people. The festival marks the end of the winter solstice and the beginning of the sun's six-month-long journey northwards. The sweet dish 'Pongal' is prepared and offered to the gods."
+    },
+    {
+      "id": "chess",
+      "title": "Chess",
+      "category": "Concepts",
+      "emoji": "♟️",
+      "summary": "The game of chess originated in the Gupta Empire of India, where its early form was known as 'Chaturanga'.",
+      "fullDescription": "Chaturanga, which translates to 'four divisions of the military' (infantry, cavalry, elephants, and chariotry), is considered the common ancestor of the games of chess, shogi, and makruk. The game spread to Persia and then throughout the Muslim world to Europe."
+    },
+    {
+      "id": "yoga",
+      "title": "Yoga",
+      "category": "Concepts",
+      "emoji": "🧘",
+      "summary": "A group of physical, mental, and spiritual practices or disciplines which originated in ancient India.",
+      "fullDescription": "The origins of yoga have been speculated to date back to pre-Vedic Indian traditions. It is mentioned in the Rigveda and the Upanishads. The Yoga Sutras of Patanjali from the first half of the 1st millennium CE is a key surviving text. The goal of yoga is to attain a state of perfect spiritual insight and tranquility."
+    },
+    {
+      "id": "mauryan_dynasty",
+      "title": "Mauryan Dynasty",
+      "category": "Dynasties",
+      "emoji": "🏛️",
+      "summary": "The first pan-Indian empire, founded by Chandragupta Maurya.",
+      "fullDescription": "The Mauryan Empire (322-185 BCE) was a geographically extensive Iron Age historical power in South Asia based in Magadha. At its greatest extent, the Empire stretched to the north along the natural boundaries of the Himalayas, to the east into Assam, to the west into Balochistan and the Hindu Kush mountains of what is now Afghanistan."
+    },
+    {
+      "id": "gupta_dynasty",
+      "title": "Gupta Dynasty",
+      "category": "Dynasties",
+      "emoji": "⚱️",
+      "summary": "An ancient Indian empire which existed from the early 4th century CE to the late 6th century CE.",
+      "fullDescription": "The period of the Gupta Empire is known as the 'Golden Age of India'. It was marked by extensive inventions and discoveries in science, technology, engineering, art, dialectic, literature, logic, mathematics, astronomy, religion, and philosophy that crystallized the elements of what is generally known as Hindu culture."
+    }
+  ]
+}
+

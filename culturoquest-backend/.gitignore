@@ -1,0 +1,8 @@
+This tells Git to ignore your secret keys
+
+.env
+
+This tells Git to ignore the thousands of downloaded library files
+
+node_modules
+node_modules
