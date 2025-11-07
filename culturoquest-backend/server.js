@@ -5,8 +5,24 @@ const cors = require('cors');
 
 const app = express();
 
-// 1. Middleware FIRST
-app.use(cors({ origin: 'https://culturoquest-joh8ozrye-tatvajains-projects.vercel.app', credentials: true }));
+// 1. Middleware 
+app.use(cors({
+  origin: function(origin, callback) {
+    // Allow requests with no origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    // Allow your production domain and all Vercel preview deployments
+    if (
+      origin.endsWith('.vercel.app') || 
+      origin === 'https://culturoquest.vercel.app'
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 
 // 2. Test Route SECOND (Must be before any protected routes)
