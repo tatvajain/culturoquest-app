@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // This is the URL of our backend server.
-const API_URL = 'https://culturoquest-app-1.onrender.com';
+const API_URL = 'https://culturoquest-app-1.onrender.com/api/users/login';
 
 const AuthContext = createContext(null);
 

@@ -7,7 +7,7 @@ import { useAuth } from './AuthContext';
 const GameContext = createContext(null);
 export const useGame = () => useContext(GameContext);
 
-const API_URL = 'https://culturoquest-app-1.onrender.com';
+const API_URL = 'https://culturoquest-app-1.onrender.com/api/users/login';
 
 const allSagasData = {
   "ancient-india-bce": mauryanSaga,
