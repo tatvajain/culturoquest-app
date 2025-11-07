@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 // 1. Middleware FIRST
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'https://culturoquest-app.vercel.app', credentials: true }));
 app.use(express.json());
 
 // 2. Test Route SECOND (Must be before any protected routes)
