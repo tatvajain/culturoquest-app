@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // <--- FIX: Added { useState, useEffect }
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useGame } from '../context/GameContext'; // <-- Gets all data
+import { useGame } from '../context/GameContext';
 import stagesData from '../data/stagesData.json';
 import imageData from '../data/imageData.json';
-
-// --- REMOVED: API_URL (comes from context now) ---
-// --- REMOVED: useAuth (not needed, token is handled in context) ---
 
 const DashboardWidget = ({ children, className = '' }) => (
   <div className={`bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-lg ${className}`}>
@@ -19,7 +16,7 @@ const LeaderboardSnapshotWidget = () => {
     const [topPlayers, setTopPlayers] = useState([]);
     const [loading, setLoading] = useState(true);
     
-    // Define the API URL *only* for this component
+    // Define API_URL here to use the environment variable
     const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/users';
 
     useEffect(() => {
@@ -33,7 +30,7 @@ const LeaderboardSnapshotWidget = () => {
                 console.error("Failed to fetch leaderboard:", err);
                 setLoading(false);
             });
-    }, []);
+    }, [API_URL]);
 
     return (
         <DashboardWidget>
@@ -45,11 +42,13 @@ const LeaderboardSnapshotWidget = () => {
                     <p className="text-sm text-slate-500 animate-pulse">Finding top scholars...</p>
                 ) : topPlayers.length > 0 ? (
                     topPlayers.map((player, index) => {
-                        const avatar = imageData.avatars.find(a => a.id === player.avatar);
-                        const avatarUrl = avatar ? avatar.url : imageData.avatars[0].url;
+                        // Use fallback if avatar ID doesn't match anything in imageData
+                        const avatarObj = imageData.avatars.find(a => a.id === player.avatar);
+                        const avatarUrl = avatarObj ? avatarObj.url : imageData.avatars[0].url;
+                        
                         return (
                             <motion.div 
-                                key={player._id || index} // Use _id, fallback to index
+                                key={player._id || index}
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
@@ -80,13 +79,8 @@ const LeaderboardSnapshotWidget = () => {
 
 // --- MAIN HOME COMPONENT ---
 export default function Home() {
-  // Get all data from the GameContext
   const { userProgress, userData } = useGame();
-  
-  // Get username from the userData object
   const { username } = userData;
-
-  // --- REMOVED: useEffect for fetching username (now done in context) ---
 
   const currentStageId = userProgress.activeStages[0];
   const currentStage = stagesData.stages.find(s => s.id === currentStageId);
@@ -99,6 +93,7 @@ export default function Home() {
       </motion.div>
       
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Main Content Area */}
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="lg:col-span-2">
              <div className="relative p-8 rounded-3xl overflow-hidden bg-slate-800 text-white shadow-2xl">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
@@ -121,6 +116,7 @@ export default function Home() {
             </div>
         </motion.div>
 
+        {/* Sidebar Area */}
         <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="space-y-8">
           <DashboardWidget>
               <h4 className="font-bold text-slate-800 text-lg">Daily Challenge 🎯</h4>
@@ -132,6 +128,7 @@ export default function Home() {
               </Link>
           </DashboardWidget>
           
+          {/* Real Leaderboard Widget */}
           <LeaderboardSnapshotWidget />
         </motion.div>
       </div>
