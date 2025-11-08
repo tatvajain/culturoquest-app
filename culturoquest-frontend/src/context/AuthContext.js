@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 // In AuthContext.js AND GameContext.js
 // This line automatically uses the Vercel variable when deployed,
 // or falls back to localhost:5000 when run locally.
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/users';
+const API_URL = 'https://culturoquest-app-1.onrender.com/api/users' || 'http://localhost:5000/api/users';
 
 const AuthContext = createContext(null);
 

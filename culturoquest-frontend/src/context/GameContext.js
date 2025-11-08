@@ -7,7 +7,7 @@ import { useAuth } from './AuthContext';
 const GameContext = createContext(null);
 export const useGame = () => useContext(GameContext);
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/users';
+const API_URL = 'https://culturoquest-app-1.onrender.com/api/users'  || 'http://localhost:5000/api/users';
 
 const allSagasData = { "ancient-india-bce": mauryanSaga, "indian-culture-101": triviaSaga };
 
