@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import stagesData from '../data/stagesData.json';
 import imageData from '../data/imageData.json';
 
-const API_URL = 'http://localhost:5000/api/users';
+const API_URL = 'https://culturoquest-app-1.onrender.com/api/users';
 
 const DashboardWidget = ({ children, className = '' }) => (
   <div className={`bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-lg ${className}`}>
