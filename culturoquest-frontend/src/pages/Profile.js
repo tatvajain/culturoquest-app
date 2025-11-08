@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useGame } from '../context/GameContext';
-import { useAuth } from '../context/AuthContext';
+import { useGame } from '../context/GameContext'; // Gets game data
+import { useAuth } from '../context/AuthContext';   // Gets auth data
 import { useNavigate } from 'react-router-dom';
 import imageData from '../data/imageData.json';
 import storeData from '../data/storeItems.json';
 
-// Keep API URL consistent
-const API_URL = 'http://localhost:5000/api/users';
+// --- NO API_URL HERE! ---
 
-// --- HELPER: Calculate Level based on Quest Points ---
+// --- HELPER: Calculate Level ---
 const calculateLevelInfo = (qp) => {
     const level = Math.floor(qp / 1000) + 1;
     const progress = ((qp % 1000) / 1000) * 100;
@@ -22,6 +21,7 @@ const calculateLevelInfo = (qp) => {
 };
 
 // --- SUB-COMPONENTS ---
+// (StatCard, InventoryItem, ProgressRing, AvatarSelectionModal... keep them exactly as they were)
 const StatCard = ({ label, value, emoji }) => (
     <motion.div whileHover={{ scale: 1.05 }} className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-indigo-100 text-center shadow-sm">
       <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">{emoji} {label}</p>
@@ -36,13 +36,8 @@ const InventoryItem = ({ item }) => {
         setRevealed(true);
         setTimeout(() => setRevealed(false), 2000);
     };
-
     return (
-        <motion.div 
-            layout 
-            onClick={copyCode}
-            className="bg-white p-4 rounded-xl border-2 border-slate-200 cursor-pointer hover:border-indigo-400 transition-all group relative overflow-hidden"
-        >
+        <motion.div layout onClick={copyCode} className="bg-white p-4 rounded-xl border-2 border-slate-200 cursor-pointer hover:border-indigo-400 transition-all group relative overflow-hidden">
             <div className="flex items-center space-x-3">
                 <div className="text-2xl">{item.logo_placeholder}</div>
                 <div>
@@ -63,15 +58,9 @@ const ProgressRing = ({ progress, level }) => {
     const offset = circumference - (progress / 100) * circumference;
     return (
         <svg className="w-32 h-32" viewBox="0 0 100 100">
-            <defs>
-                <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#ec4899" />
-                </linearGradient>
-            </defs>
+            <defs><linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#6366f1" /><stop offset="100%" stopColor="#ec4899" /></linearGradient></defs>
             <circle className="text-indigo-100" strokeWidth="8" stroke="currentColor" fill="transparent" r={radius} cx="50" cy="50" />
-            <motion.circle 
-                className="text-indigo-500" strokeWidth="8" stroke="url(#ringGradient)" strokeLinecap="round" fill="transparent" r={radius} cx="50" cy="50"
+            <motion.circle className="text-indigo-500" strokeWidth="8" stroke="url(#ringGradient)" strokeLinecap="round" fill="transparent" r={radius} cx="50" cy="50"
                 style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
                 initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 1.5, ease: "easeInOut" }} strokeDasharray={circumference}
             />
@@ -99,22 +88,16 @@ const AvatarSelectionModal = ({ onClose }) => {
     );
 };
 
+// --- MAIN COMPONENT ---
 export default function Profile() {
-  const { questPoints, selectedAvatar, unlockedAchievements, userProgress, correctlyAnsweredQIDs, ownedItems } = useGame();
-  const { token, logout } = useAuth();
+  // All data now comes from the contexts
+  const { questPoints, selectedAvatar, unlockedAchievements, userProgress, correctlyAnsweredQIDs, ownedItems, userData } = useGame();
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [userData, setUserData] = useState({ username: 'Explorer', joined: '...' });
 
-  useEffect(() => {
-      if (token) {
-          fetch(`${API_URL}/me`, { headers: { 'x-auth-token': token } })
-            .then(res => res.json())
-            .then(data => { if (data.username) setUserData({ username: data.username, joined: new Date(data.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) }); })
-            .catch(err => console.error(err));
-      }
-  }, [token]);
-
+  // We get userData (username, joined date) from GameContext now
+  const { username, joined } = userData;
   const avatarUrl = imageData.avatars.find(a => a.id === selectedAvatar)?.url;
   const { level, title, progress } = calculateLevelInfo(questPoints);
   const myInventory = storeData.items.filter(item => ownedItems.has(item.id));
@@ -135,9 +118,9 @@ export default function Profile() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" /><path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" /></svg>
           </button>
           
-          <h1 className="text-3xl font-black text-slate-800">@{userData.username}</h1>
+          <h1 className="text-3xl font-black text-slate-800">@{username}</h1>
           <div className="mt-2 px-4 py-1 bg-indigo-100 text-indigo-700 font-bold rounded-full text-sm inline-block">{title}</div>
-          <p className="mt-4 text-slate-500 font-medium">Member since {userData.joined}</p>
+          <p className="mt-4 text-slate-500 font-medium">Member since {joined}</p>
 
           <div className="mt-auto pt-8 w-full">
             <button onClick={() => { logout(); navigate('/login'); }} className="w-full py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-red-50 hover:text-red-500 transition-colors flex items-center justify-center">

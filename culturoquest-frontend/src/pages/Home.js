@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useGame } from '../context/GameContext';
-import { useAuth } from '../context/AuthContext';
+import { useGame } from '../context/GameContext'; // <-- Gets all data
 import stagesData from '../data/stagesData.json';
 import imageData from '../data/imageData.json';
 
-const API_URL = 'https://culturoquest-app-1.onrender.com/api/users';
+// --- REMOVED: API_URL (comes from context now) ---
+// --- REMOVED: useAuth (not needed, token is handled in context) ---
 
 const DashboardWidget = ({ children, className = '' }) => (
   <div className={`bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-lg ${className}`}>
@@ -18,6 +18,9 @@ const DashboardWidget = ({ children, className = '' }) => (
 const LeaderboardSnapshotWidget = () => {
     const [topPlayers, setTopPlayers] = useState([]);
     const [loading, setLoading] = useState(true);
+    
+    // Define the API URL *only* for this component
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/users';
 
     useEffect(() => {
         fetch(`${API_URL}/leaderboard`)
@@ -44,10 +47,9 @@ const LeaderboardSnapshotWidget = () => {
                     topPlayers.map((player, index) => {
                         const avatar = imageData.avatars.find(a => a.id === player.avatar);
                         const avatarUrl = avatar ? avatar.url : imageData.avatars[0].url;
-                        
                         return (
                             <motion.div 
-                                key={player._id}
+                                key={player._id || index} // Use _id, fallback to index
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
@@ -76,20 +78,15 @@ const LeaderboardSnapshotWidget = () => {
     );
 };
 
-// --- MAIN HOME COMPONENT (Export Default was likely missing here) ---
+// --- MAIN HOME COMPONENT ---
 export default function Home() {
-  const { userProgress } = useGame();
-  const { token } = useAuth();
-  const [username, setUsername] = useState('Explorer');
+  // Get all data from the GameContext
+  const { userProgress, userData } = useGame();
+  
+  // Get username from the userData object
+  const { username } = userData;
 
-  useEffect(() => {
-    if (token) {
-        fetch(`${API_URL}/me`, { headers: { 'x-auth-token': token } })
-          .then(res => res.json())
-          .then(data => { if (data.username) setUsername(data.username); })
-          .catch(err => console.error(err));
-    }
-  }, [token]);
+  // --- REMOVED: useEffect for fetching username (now done in context) ---
 
   const currentStageId = userProgress.activeStages[0];
   const currentStage = stagesData.stages.find(s => s.id === currentStageId);
@@ -135,7 +132,6 @@ export default function Home() {
               </Link>
           </DashboardWidget>
           
-          {/* The new real leaderboard */}
           <LeaderboardSnapshotWidget />
         </motion.div>
       </div>

@@ -7,15 +7,12 @@ import { useAuth } from './AuthContext';
 const GameContext = createContext(null);
 export const useGame = () => useContext(GameContext);
 
-const API_URL = 'https://culturoquest-app-1.onrender.com/api/users/login';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/users';
 
-const allSagasData = {
-  "ancient-india-bce": mauryanSaga,
-  "indian-culture-101": triviaSaga
-};
+const allSagasData = { "ancient-india-bce": mauryanSaga, "indian-culture-101": triviaSaga };
 
-// Helper to get all Question IDs for a specific saga
 const getQuestionIdsForSaga = (sagaId) => {
+    // ... (keep this function as it was) ...
     const saga = allSagasData[sagaId];
     if (!saga) return [];
     let ids = [];
@@ -35,6 +32,9 @@ const getQuestionIdsForSaga = (sagaId) => {
 };
 
 export const GameProvider = ({ children }) => {
+  // --- ADDED userData STATE ---
+  const [userData, setUserData] = useState({ username: 'Explorer', joined: '...' });
+  
   const [questPoints, setQuestPoints] = useState(0);
   const [ownedItems, setOwnedItems] = useState(new Set());
   const [selectedAvatar, setSelectedAvatar] = useState('default');
@@ -48,51 +48,53 @@ export const GameProvider = ({ children }) => {
 
   const { token } = useAuth();
 
-  // --- BACKEND SYNC ---
   const syncToBackend = useCallback(async (updates) => {
     if (!token) return;
     try {
        await fetch(`${API_URL}/update-progress`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-auth-token': token
-        },
+        headers: { 'Content-Type': 'application/json', 'x-auth-token': token },
         body: JSON.stringify(updates)
       });
-    } catch (error) {
-      console.error("Sync error:", error);
-    }
+    } catch (error) { console.error("Sync error:", error); }
   }, [token]);
 
-  // --- INITIAL LOAD ---
+  // --- LOAD DATA (NOW INCLUDES USERNAME/DATE) ---
   useEffect(() => {
     if (token) {
         fetch(`${API_URL}/me`, { headers: { 'x-auth-token': token } })
             .then(res => res.json())
             .then(data => {
                 if (data._id) {
+                    // --- SET USER DATA ---
+                    setUserData({
+                        username: data.username,
+                        joined: new Date(data.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+                    });
+                    // --- SET GAME DATA ---
                     setQuestPoints(data.questPoints);
                     setSelectedAvatar(data.avatar);
                     setOwnedItems(new Set(data.ownedItems));
                     setCorrectlyAnsweredQIDs(new Set(data.correctlyAnsweredQIDs));
                     setUnlockedAchievements(new Set(data.unlockedAchievements));
                     setUnlockedArchiveEntries(new Set(data.unlockedArchiveEntries));
+                    // --- SET PROGRESS (with fallback) ---
+                    let activeStages = data.userProgress.activeStages || [];
+                    const hasValidStages = activeStages.some(id => id === 'history_1' || id === 'culture_1');
+                    if (!hasValidStages) activeStages = ['history_1', 'culture_1'];
                     setUserProgress({
                         completedStages: data.userProgress.completedStages || [],
-                        activeStages: data.userProgress.activeStages?.length ? data.userProgress.activeStages : ['history_1_mauryan', 'culture_1_basics']
+                        activeStages: activeStages
                     });
                 }
-            })
-            .catch(err => console.error("Failed to load profile:", err));
+            }).catch(err => console.error("Failed to load profile:", err));
     }
   }, [token]);
 
-  // --- ACTIONS ---
+  // --- (ACTIONS: addPoints, spendPoints, etc... keep them all as they were) ---
   const addPoints = (amount) => {
     setQuestPoints(prev => { const n = prev + amount; syncToBackend({ questPoints: n }); return n; });
   };
-
   const spendPoints = (amount) => {
     if (questPoints >= amount) {
       setQuestPoints(prev => { const n = prev - amount; syncToBackend({ questPoints: n }); return n; });
@@ -100,7 +102,6 @@ export const GameProvider = ({ children }) => {
     }
     return false;
   };
-
   const markQuestionCorrect = (ids) => {
     const idsToMark = Array.isArray(ids) ? ids : [ids];
     setCorrectlyAnsweredQIDs(prev => {
@@ -111,23 +112,19 @@ export const GameProvider = ({ children }) => {
         return newSet;
     });
   };
-
   const unlockAchievement = (id) => {
     setUnlockedAchievements(prev => {
         if (!prev.has(id)) { syncToBackend({ unlockedAchievements: [id] }); return new Set(prev).add(id); }
         return prev;
     });
   };
-
   const unlockArchiveEntry = (id) => {
       setUnlockedArchiveEntries(prev => {
           if (!prev.has(id)) { syncToBackend({ unlockedArchiveEntries: [id] }); return new Set(prev).add(id); }
           return prev;
       });
   };
-
   const setAvatar = (id) => { setSelectedAvatar(id); syncToBackend({ avatar: id }); };
-
   const buyItem = (item) => {
       if (!ownedItems.has(item.id) && spendPoints(item.price)) {
           setOwnedItems(prev => {
@@ -140,31 +137,26 @@ export const GameProvider = ({ children }) => {
       return false;
   };
 
-  // --- PROGRESSION LOGIC ---
+  // --- (PROGRESSION LOGIC: keep as-is) ---
   useEffect(() => {
     const newCompleted = [...userProgress.completedStages];
     let newActive = [...userProgress.activeStages];
     let changed = false;
-
-    userProgress.activeStages.forEach(activeStageId => {
-        if (newCompleted.includes(activeStageId)) return;
-        const stage = stagesData.stages.find(s => s.id === activeStageId);
+    userProgress.activeStages.forEach(stageId => {
+        if (newCompleted.includes(stageId)) return;
+        const stage = stagesData.stages.find(s => s.id === stageId);
         if (!stage) return;
         const totalQs = getQuestionIdsForSaga(stage.relatedSaga);
         if (totalQs.length === 0) return;
         const answeredInSaga = totalQs.filter(id => correctlyAnsweredQIDs.has(id)).length;
-        
         if ((answeredInSaga / totalQs.length) >= 0.6) {
-             newCompleted.push(activeStageId);
+             newCompleted.push(stageId);
              changed = true;
-             const currentIndex = stagesData.stages.findIndex(s => s.id === activeStageId);
+             const currentIndex = stagesData.stages.findIndex(s => s.id === stageId);
              const nextStage = stagesData.stages[currentIndex + 1];
-             if (nextStage && nextStage.id.split('_')[0] === activeStageId.split('_')[0]) {
-                 newActive.push(nextStage.id);
-             }
+             if (nextStage && nextStage.id.split('_')[0] === stageId.split('_')[0]) newActive.push(nextStage.id);
         }
     });
-
     if (changed) {
         const newActiveFiltered = newActive.filter(id => !newCompleted.includes(id));
         setUserProgress({ completedStages: newCompleted, activeStages: newActiveFiltered });
@@ -172,12 +164,14 @@ export const GameProvider = ({ children }) => {
     }
   }, [correctlyAnsweredQIDs, userProgress, syncToBackend]);
 
+  // --- FINAL VALUE OBJECT (with userData) ---
   const value = { 
+    userData, // <-- EXPORT USER DATA
     questPoints, addPoints, spendPoints, ownedItems, buyItem, 
     selectedAvatar, setAvatar, userProgress, correctlyAnsweredQIDs, 
     markQuestionCorrect, unlockedAchievements, unlockAchievement,
     unlockedArchiveEntries, unlockArchiveEntry,
-    getQuestionIdsForSaga // <--- ADDED BACK!
+    getQuestionIdsForSaga
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
